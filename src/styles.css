@@ -11,3 +11,7 @@ body {
   font-family: sans-serif;
   text-align: center;
 }
+
+.navbar {
+  margin-bottom: 5%;
+}

@@ -12,7 +12,7 @@ export default function App() {
       <Container>
         <Grid container spacing={3}>
           <Grid item xs={12} md={4}>
-            <Section data={{ heading: "test" }} />
+            <Section data={{ heading: "test", value: 5000 }} />
           </Grid>
           <Grid item xs={12} md={4}>
             <Section data={{ heading: "test" }} />
