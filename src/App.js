@@ -15,10 +15,10 @@ export default function App() {
             <Section data={{ heading: "test", value: 5000 }} />
           </Grid>
           <Grid item xs={12} md={4}>
-            <Section data={{ heading: "test" }} />
+            <Section data={{ heading: "test", value: 300 }} />
           </Grid>
           <Grid item xs={12} md={4}>
-            <Section data={{ heading: "test" }} />
+            <Section data={{ heading: "test", value: 500 }} />
           </Grid>
         </Grid>
       </Container>
