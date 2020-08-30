@@ -11,7 +11,7 @@ export default function App() {
   useEffect(async () => {
     const data = await (await fetch("https://coronavirus-19-api.herokuapp.com/all")).json()
     setData(data)
-  })
+  }, {})
   return (
     <div className="App">
       <Header />
