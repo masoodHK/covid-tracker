@@ -8,9 +8,12 @@ import Section from "./components/Section";
 export default function App() {
   const [data, setData] = useState({})
 
-  useEffect(async () => {
-    const data = await (await fetch("https://coronavirus-19-api.herokuapp.com/all")).json()
-    setData(data)
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await (await fetch("https://coronavirus-19-api.herokuapp.com/all")).json()
+      setData(data)
+    }
+    fetchData()
   }, [])
   return (
     <div className="App">
