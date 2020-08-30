@@ -19,4 +19,4 @@ jobs:
       - name: Install Surge
         run: npm install -g surge
       - name: Run surge
-        run: surge ./build/ wet-cabbage.surge.sh --token ${{ secrets.DEPLOYMENT_TOKEN }}
+        run: surge ./build/ wet-cabbage.surge.sh --token ${{ secrets.DEPLOYMENT_SECRET }}
