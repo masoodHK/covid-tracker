@@ -2,8 +2,10 @@ import React, { useReducer, createContext } from "react";
 import CountryReducer from "./CountryReducer";
 
 const initialState = {
-  data: {},
-  country: ""
+  data: [],
+  dailyData: [],
+  countries: [],
+  countryID: ""
 };
 
 export const GlobalContext = createContext();
