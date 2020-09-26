@@ -3,11 +3,13 @@ export default (state, action) => {
     case "GET_DATA":
       return {
         ...state,
+        countryID: "all",
         data: action.payload.data
       };
     case "GET_DAILY_DATA":
       return {
         ...state,
+        countryID: "all",
         dailyData: action.payload.dailyData
       };
     case "GET_COUNTRIES": 
@@ -18,7 +20,8 @@ export default (state, action) => {
     case "GET_DATA_BY_COUNTRY":
       return {
         ...state,
-        countryID: action.payload.countryID
+        countryID: action.payload.countryID,
+        data: action.payload.data
       };
     default:
       return state;

@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Container, Grid } from "@material-ui/core";
+import React, { useEffect, useContext } from "react";
+import { Container } from "@material-ui/core";
 import Header from "./components/Header";
 
 import "./styles.css";
-import Section from "./components/Section";
 import CountryPicker from "./components/CountryPicker";
 import { Chart } from "./components/Chart";
+import { GlobalContext } from "./context/GlobalContext";
+import CasesInfo from "./components/CasesInfo";
 
 export default function App() {
-  const [data, setData] = useState({})
-  const [dailyData, setDailyData] = useState([]);
-  const [countries, setCountries] = useState([])
+  const { setData, setDailyData, setCountries } = useContext(GlobalContext)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,30 +21,16 @@ export default function App() {
       setCountries(countries.countries)
     }
     fetchData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <div className="App">
       <Header />
+      <CasesInfo />
+      <CountryPicker />
       <Container>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={4}>
-            <Section data={{ heading: "Cases", value: data["confirmed"] ? data["confirmed"].value : 0 }} />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Section data={{ heading: "Recovered", value: data["recovered"] ? data["recovered"].value : 0 }} />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Section data={{ heading: "Deaths", value: data["deaths"] ? data["deaths"].value : 0 }} />
-          </Grid>
-        </Grid>
-      </Container>
-      <CountryPicker countries={countries}/>
-      <Container>
-        <Chart fetchedData={{
-          deaths: dailyData.map(({ deaths }) => deaths.total),
-          confirmed: dailyData.map(({ confirmed }) => confirmed.total),
-        }} labels={dailyData.map(({ reportDate }) => reportDate)} />
+        <Chart/>
       </Container>
     </div>
   );

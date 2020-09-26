@@ -5,7 +5,7 @@ export default () => (
   <header className="navbar">
     <AppBar position="static" color="secondary" >
       <Toolbar>
-        <Typography>COVID-19 Tracker</Typography>
+        <Typography property="bold">COVID-19 Tracker</Typography>
       </Toolbar>
     </AppBar>
   </header>
